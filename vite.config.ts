@@ -7,7 +7,7 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  base: '/mr-sim.github.io/',
+  base: '/portfolio/',
   server: {
     port: 3000, 
   },

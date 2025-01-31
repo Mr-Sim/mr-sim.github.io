@@ -6,18 +6,19 @@ import { BlogContent } from '../Blog/BlogContent';
 
 export const sections: Section[] = [
   {
-    title: 'Home',
+    title: 'Accueil',
     backgroundColor: '#1a365d',
     content: <HomeSection />,
   },
   {
-    title: 'Projects',
+    title: 'Projets',
     backgroundColor: '#2c5282',
     content: <ProjectsSection/>,
   },
   {
-    title: 'Bio',
-    backgroundColor: '#3182ce',
+    title: 'À propos de moi',
+    //backgroundColor: '#3182ce',
+    backgroundColor: '#2D5C9F',
     content: <BlogContent />,
   },
 ];
