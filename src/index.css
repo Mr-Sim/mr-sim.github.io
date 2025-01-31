@@ -1,0 +1,59 @@
+/* Import custom styles first */
+@import './styles/scrollbar.css';
+@import './styles/animations.css';
+
+/* Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Utility classes */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Rich content styling */
+.rich-content {
+  @apply text-base leading-relaxed;
+}
+
+.rich-content h1 {
+  @apply text-3xl font-bold text-white mt-10 mb-6;
+}
+
+.rich-content h2 {
+  @apply text-2xl font-semibold text-white mt-8 mb-4;
+}
+
+.rich-content h3 {
+  @apply text-xl font-semibold text-white mt-8 mb-4;
+}
+
+.rich-content h4 {
+  @apply text-lg font-medium text-white mt-6 mb-3;
+}
+
+.rich-content p {
+  @apply mb-4 text-white/90 text-justify;
+}
+
+.rich-content ul {
+  @apply list-disc list-inside mb-6 space-y-2;
+}
+
+.rich-content li {
+  @apply text-white/80 ml-4;
+}
+
+.rich-content > *:first-child {
+  @apply mt-0;
+}
+
+.rich-content > *:last-child {
+  @apply mb-0;
+}

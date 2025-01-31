@@ -1,0 +1,29 @@
+/* Base animations */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* CSS pour l'animation du header */
+@keyframes headerAnimation {
+  0% {
+    transform: scaleY(1);
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  50% {
+    transform: scaleY(1.2) scaleX(1.02); /* Gonflement vertical */
+    background-color: rgba(255, 255, 255, 0.3); /* Blanchiment */
+  }
+  100% {
+    transform: scaleY(1);
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.header-animate {
+  animation: headerAnimation 0.6s ease-out;
+}
