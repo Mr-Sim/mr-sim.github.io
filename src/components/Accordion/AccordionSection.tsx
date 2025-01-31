@@ -78,13 +78,6 @@ export function AccordionSection({
           }`} 
         />
       </button>
-
-      {/* Affichage du compte à rebours */}
-      {countdown > 0 && (
-        <div className="absolute bottom-2 left-0 right-0 text-center text-white">
-          <span className="text-lg">{countdown.toFixed(1)}s</span> {/* Affiche une décimale */}
-        </div>
-      )}
     </div>
   );
 }
