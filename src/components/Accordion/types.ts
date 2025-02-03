@@ -4,6 +4,7 @@ export interface AccordionSectionProps {
   onToggle: () => void;
   backgroundColor: string;
   children: React.ReactNode;
+  countdownTime: number;
 }
 
 export interface Section {

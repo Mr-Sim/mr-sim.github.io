@@ -1,6 +1,7 @@
 import React from 'react';
 import { ProjectCardProps } from './types';
 import { TechChip } from './TechChip';
+import { IKImage } from 'imagekitio-react';
 
 export function ProjectCard({ project, onViewProject }: ProjectCardProps) {
   return (
@@ -11,14 +12,16 @@ export function ProjectCard({ project, onViewProject }: ProjectCardProps) {
         onClick={() => onViewProject(project)}
         className="relative aspect-video w-full overflow-hidden cursor-pointer"
       >
-        <img 
+        <IKImage
           decoding="async"
           src={project.imageUrl} 
+          width='450'
           alt={project.title}
           className="absolute inset-0 w-full h-full object-cover transition-transform 
             duration-500 hover:scale-110"
           loading="lazy"
         />
+
       </div>
 
       {/* Content container */}

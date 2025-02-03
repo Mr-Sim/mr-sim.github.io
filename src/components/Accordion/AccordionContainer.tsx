@@ -11,7 +11,7 @@ export function AccordionContainer() {
   
   return (
     <AccordionProvider expandedIndex = { expandedIndex }>
-      <div className="h-screen flex flex-col">
+      <div className="h-screen flex flex-col" id="mroot">
         {sections.map((section, index) => (
           <AccordionSection
             key={index}
@@ -19,7 +19,7 @@ export function AccordionContainer() {
             isExpanded={expandedIndex === index}
             onToggle={() => handleToggle(index)}
             backgroundColor={section.backgroundColor}
-            countdownTime={index*0.5+1}
+            countdownTime={index*0.5+0.9}
           >
             {section.content}
           </AccordionSection>

@@ -12,17 +12,26 @@ export const PHYSICS_CONSTANTS = {
   },
   
   // High elasticity for bouncy collisions
-  ELASTICITY: 0.7,
+  get ELASTICITY(){
+    return isMobileDevice() ? 0.8 : 0.7;
+  },
   
   // Reduced friction to maintain momentum
   FRICTION: 0.998, // 0.998
   
   // Reduced boundary elasticity for natural bounces
-  BOUNDARY_ELASTICITY: 1.1,
+  get BOUNDARY_ELASTICITY() {
+    return isMobileDevice() ? 0.5 : 1;
+  },
   
   // Collision resolution
-  POSITION_CORRECTION_PERCENT: 0.2,
-  ALLOWED_PENETRATION: 0.01,
+  get POSITION_CORRECTION_PERCENT() {
+    return isMobileDevice() ? 0.25 : 0.2;
+  },
+
+  get ALLOWED_PENETRATION() {
+    return isMobileDevice() ? 0.01 : 0.1;
+  },
 
   // Force visualization threshold
   get FORCE_THRESHOLD() {

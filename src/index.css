@@ -1,5 +1,5 @@
 /* Import custom styles first */
-@import './styles/scrollbar.css';
+/*@import './styles/scrollbar.css';*/
 @import './styles/animations.css';
 
 /* Tailwind directives */
@@ -15,6 +15,14 @@
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+html, body, #root, #mroot {
+  height: 100dvh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Empêche le scrolling */
 }
 
 /* Rich content styling */
@@ -56,4 +64,48 @@
 
 .rich-content > *:last-child {
   @apply mb-0;
+}
+
+
+
+@layer base {
+
+  * {
+    scrollbar-width: thin !important; /* Pour Firefox */
+    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.1) !important;
+  }
+  
+
+  /* Global scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 8px !important; 
+    height: 8px !important; /* For horizontal scrollbars */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 4px !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 4px !important;
+    transition: background 0.2s !important;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+  }
+
+  /* Hide scrollbar on mobile */
+  @media (max-width: 768px) {
+    * {
+      -ms-overflow-style: none !important;
+      scrollbar-width: none !important;
+    }
+    
+    *::-webkit-scrollbar {
+      display: none !important;
+    }
+  }
 }

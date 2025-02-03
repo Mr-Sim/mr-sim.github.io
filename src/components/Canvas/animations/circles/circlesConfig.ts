@@ -12,12 +12,14 @@ export const CIRCLES_CONFIG = {
   get count() {
     return getResponsiveCount(BASE_COUNT);
   },
-  maxInitialVelocity: 0.2,
+  get maxInitialVelocity() {
+    return isMobileDevice() ? 1.2 : 4.5;
+  },
   get minRadius() {
-    return window.innerWidth <= 768 ? 2 : 10;
+    return window.innerWidth <= 768 ? 3 : 10;
   },
   get maxRadius() {
-    return window.innerWidth <= 768 ? 7 : 45;
+    return window.innerWidth <= 768 ? 10 : 45;
   },
   get spawnRadius() {
     return isMobileDevice() ? 0.4 : 0.4; // 0.5 = double radius for mobile
@@ -28,10 +30,10 @@ export const CIRCLES_CONFIG = {
   opacity: 0.8,
 
   get lineThickness(){
-    return isMobileDevice() ?  0.5 : 2;
+    return isMobileDevice() ?  0.02 : 2;
   },
 
-  get MAX_SPEED() { return 50; },
+  get MAX_SPEED() { return isMobileDevice() ? 10 : 50; },
   
   // Boundaries
   boundaryMode: 'bounce' as const,

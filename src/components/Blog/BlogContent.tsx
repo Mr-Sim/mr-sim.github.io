@@ -6,7 +6,7 @@ import { EnhancedCarousel } from './Carousel/EnhancedCarousel';
 import { CarouselSlide } from './Carousel/types';
 import { ChapterNavigation } from './ChapterNavigation';
 import { useAccordionContext } from '../Accordion/AccordionContext';
-import { BlogTextCaroussel } from './TextCaroussel/BlogTextCaroussel';
+import { BlogTextCarousel, SimpleCarouselSlide } from './TextCaroussel/BlogTextCaroussel';
 
 
 export function BlogContent() {
@@ -35,26 +35,26 @@ export function BlogContent() {
   ];
 
 
-  const SimonSlides: CarouselSlide[] = [
+  const SimonSlides: SimpleCarouselSlide[] = [
     {
-      type: 'image-only',
-      image: 'https://drive.google.com/thumbnail?id=1I6k25sjfRN-vhWsRilOtIEGa5kQ2TQpY&sz=s1000',
-      title: ''
+      src: 'https://ik.imagekit.io/mrsim/MediaBlog/Sim/sim.png',
+      alt: 'Portrait de Simon',
+      caption: "C'est moi !"
     },
     {
-      type: 'image-only',
-      image: 'https://drive.google.com/thumbnail?id=1if6GJBlQptClE6ZkrbDSeE02fBpkZSRy&sz=s1000',
-      title: ''
+      src: 'https://ik.imagekit.io/mrsim/MediaBlog/Sim/Sim2.png',
+      alt: "Simon et Dino à l'IUT de Fontainebleau",
+      caption: "C'est moi avec Dino!"
     },
     {
-      type: 'image-only',
-      image: 'https://drive.google.com/thumbnail?id=1K5zFxPeKHhtzwC2EvnnTfvdbKD0IJqeK&sz=s1000',
-      title: ''
+      src: 'https://ik.imagekit.io/mrsim/MediaBlog/Sim/Sim3.png',
+      alt: 'Simon au parc Astérix',
+      caption: "C'est moi !"
     },
     {
-      type: 'image-only',
-      image: 'https://drive.google.com/thumbnail?id=1x4hlfmsmeI6YLP9HatkKmBiA2Cr5d-Bz&sz=s1000',
-      title: ''
+      src: 'https://ik.imagekit.io/mrsim/MediaBlog/Sim/Sim4.png',
+      alt: 'Simon en exploration souterraine',
+      caption: "C'est moi !"
     },
   ];
 
@@ -73,19 +73,21 @@ export function BlogContent() {
           }`}>  
           
           <BlogText variant="h1">Bonjour !</BlogText>  
-          <BlogTextImage
-            src='https://drive.google.com/thumbnail?id=1I6k25sjfRN-vhWsRilOtIEGa5kQ2TQpY&sz=s1000' 
-            alt='picture of Simon'
-            caption="C'est moi !"
+
+          <BlogTextCarousel
+            images={SimonSlides}
+            autoPlay={true}
             imagePosition='left'
             imageWidth='1/3'
             useP={false}
+            imageOnTopMobile={true}
+            controlsPosition='inside'
             >
             <p>Je m'appelle <strong>Simon</strong>, j'ai 22 ans et suis titulaire d'un BUT en Informatique. Actuellement, je poursuis mes études en école de jeux vidéo au <strong>Gaming Campus de Paris</strong>.</p>
 
             <p>Je suis à la recherche :</p>
             <ul>
-                <li><strong>D'un stage</strong> débutant en <strong>mai 2024</strong>, idéalement dans un studio de jeux vidéo au sein d'une équipe de développement, ou dans une entreprise travaillant avec les moteurs <strong>Unity</strong> ou <strong>Unreal Engine</strong> pour des projets variés.</li>
+                <li><strong>D'un stage</strong> débutant en <strong>mai 2025</strong>, idéalement dans un studio de jeux vidéo au sein d'une équipe de développement, ou dans une entreprise travaillant avec les moteurs <strong>Unity</strong> ou <strong>Unreal Engine</strong> pour des projets variés.</li>
                 <li><strong>D'une alternance</strong> dans le même domaine pour les deux prochaines années scolaires.</li>
             </ul>
 
@@ -93,7 +95,10 @@ export function BlogContent() {
 
             <p><strong>N'hésitez pas à me contacter !</strong></p>
 
-          </BlogTextImage>
+          </BlogTextCarousel>
+
+
+          
 
           
           <BlogText variant="h2" id="wip">Work In progress</BlogText>

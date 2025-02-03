@@ -2,6 +2,8 @@ import React from 'react';
 import { Project } from './types';
 import { TechChip } from './TechChip';
 import { useAccordionContext } from '../Accordion/AccordionContext';
+import { IKImage } from 'imagekitio-react';
+import { isMobileDevice } from '../Canvas/utils/deviceDetection';
 
 interface ProjectGridProps {
   projects: Project[];
@@ -31,13 +33,15 @@ export function ProjectGrid({ projects, onViewProject }: ProjectGridProps) {
             onClick={() => onViewProject(project)}
             className="relative aspect-square md:aspect-video w-full overflow-hidden cursor-pointer"
           >
-            <img 
+            <IKImage
               decoding="async"
               src={project.imageUrl} 
               alt={project.title}
+              transformation={[{
+                width: isMobileDevice() ? 400 : 500
+              }]}
               className="absolute inset-0 w-full h-full object-cover transition-transform 
                 duration-500 group-hover:scale-110 scale-[1.15] md:scale-100"
-              loading="lazy"
             />
 
             {/* Mobile overlay - Only visible on mobile */}

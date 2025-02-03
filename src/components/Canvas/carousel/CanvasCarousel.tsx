@@ -16,7 +16,8 @@ const ANIMATIONS: AnimationInfo[] = [
 
 export function CanvasCarousel({ backgroundColor }: CanvasCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(() => 
-    Math.floor(Math.random() * ANIMATIONS.length)
+    //Math.floor(Math.random() * ANIMATIONS.length)
+    0
   );
   const [isTransitioning, setIsTransitioning] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout>();

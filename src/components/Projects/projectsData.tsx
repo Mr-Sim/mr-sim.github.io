@@ -11,7 +11,7 @@ export const projects: Project[] = [
     "date": "janvier 2024",
     "time": "2 semaines",
     "description": "Découverte du moteur Unreal Engine et du développement en Blueprint à travers un jeu de fête foraine.",
-    "detailedDescription": () => (
+    detailedDescription: () => (
       <>
       <p>Ce projet m'a permis de me familiariser avec le moteur Unreal Engine 5, son workflow et le développement en Blueprints.</p>
       <p>Les spécifications du projet consistaient à réaliser une fête foraine avec diverses attractions et des PNJ visiteurs pouvant naviguer entre elles.</p>
@@ -33,8 +33,9 @@ export const projects: Project[] = [
       
       <h4>Chamboule-tout</h4>
       <BlogTextImage
-          src="https://drive.google.com/thumbnail?id=1pp6hiJ4WvWumFagWeTCzZubqhJ9PAISN&sz=s1000"
-          alt="Mise en avant des objets et interface d'équipement"
+          src="https://drive.google.com/thumbnail?id=1eJqb1ZBvWRFNtJqkJnB2l4BPmTndOzBY&sz=s500"
+          imageFileWidth='500'
+          alt="partie de Chamboule Tout"
           imagePosition="right"
           useP={false}
         >
@@ -44,15 +45,10 @@ export const projects: Project[] = [
         <p>Le jeu se réinitialise lorsque le joueur retourne dans l'attraction.</p>
       </BlogTextImage>
 
-      <BlogImage
-          src="https://drive.google.com/thumbnail?id=1eJqb1ZBvWRFNtJqkJnB2l4BPmTndOzBY&sz=s800"
-          alt="Démonstration du mini-jeu"
-          width='mid'
-        />
-
       <h4>Auto-tamponneuses</h4>
       <BlogTextImage
-          src="https://drive.google.com/thumbnail?id=1hJ8ipwPbxaUJnkVV0bVuYfLP8H7tIFU2&sz=s1000"
+          src="https://ik.imagekit.io/mrsim/Media%20Projets/ThemePark/Autotamponeuses.PNG"
+          imageFileWidth='500'
           alt="Auto-tamponneuse contrôlée par le joueur"
           imagePosition="right"
           useP={false}
@@ -60,10 +56,11 @@ export const projects: Project[] = [
         <p>Cette attraction m'a permis de me familiariser avec la possession d'acteurs et les déplacements basés sur la physique.</p>
         <p>Le joueur entre dans une auto-tamponneuse aléatoire au démarrage de l'attraction et en est éjecté lorsque le véhicule sort de la zone de jeu.</p>
       </BlogTextImage>
-
+ 
       <h4>Gestion des visiteurs</h4>
       <BlogTextImage
-          src="https://drive.google.com/thumbnail?id=11e8As9PckXTmT81gs8YpFSvu3rcCBsBK&sz=s1000"
+          src="https://ik.imagekit.io/mrsim/Media%20Projets/ThemePark/ExitEntrance1.PNG"
+          imageFileWidth='500'
           alt="PNJ entrant et sortant du parc"
           imagePosition="right"
           useP={false}
@@ -74,7 +71,7 @@ export const projects: Project[] = [
       </BlogTextImage>
       </>
     ),
-    "imageUrl": "https://drive.google.com/thumbnail?id=1a7FOYNEN7zm2s9DnBLsGHAh4QDakSfij&sz=s1000",
+    "imageUrl": "https://ik.imagekit.io/mrsim/Media%20Projets/ThemePark/ChambouleToutView.png",
     "technologies": ["Unreal Engine 5", "Blueprint"],
     "UrlsTitles": [""],
     "Urls": [""]
@@ -95,7 +92,7 @@ export const projects: Project[] = [
       <p>Le projet visait à concevoir une portion de gameplay pour un jeu de cuisine intégrant divers types d'interfaces et de feedbacks visuels.</p>
 
       <BlogImage
-          src="https://drive.google.com/thumbnail?id=16g6pzxCGALSRT00DoAJNtpy4gnW7_A35&sz=s800"
+          src="https://drive.google.com/thumbnail?id=16g6pzxCGALSRT00DoAJNtpy4gnW7_A35&sz=s500"
           alt="Mise en avant des objets et interface d'équipement"
           width='mid'
         />
@@ -104,7 +101,8 @@ export const projects: Project[] = [
       
       <h4>Interactions avec les mains du joueur</h4>
       <BlogTextImage
-          src="https://drive.google.com/thumbnail?id=1VvKKb5IYAIy5KVEePQ21IQa8Yy_YqCEP&sz=s1000"
+          src="https://ik.imagekit.io/mrsim/Media%20Projets/CookingUI/Highlight.jpg"
+          imageFileWidth='500'
           alt="Mise en avant des objets et interface d'équipement"
           imagePosition="right"
           useP={false}
@@ -115,18 +113,20 @@ export const projects: Project[] = [
 
       <h4>Interface en World Space et feedback</h4>
       <BlogTextImage
-          src="https://drive.google.com/thumbnail?id=1PRyGVeSflPY_iH3QuSR3pz1l3hSjoC4X&sz=s1000"
+          src="https://ik.imagekit.io/mrsim/Media%20Projets/CookingUI/Fire.jpg"
+          imageFileWidth='500'
           alt="Flamme du four"
           imagePosition="right"
           useP={false}
-        >
+          >
         <p>Lorsqu'un objet est sélectionné, un panneau contextuel apparaît à proximité, affichant son nom et les actions possibles avec les mains du joueur.</p>
         <p>À l'approche du four, un simple curseur s'affiche, permettant de régler la puissance du feu. Un système de particules adapte l'apparence de la flamme en fonction de la puissance sélectionnée.</p>
       </BlogTextImage>
 
       <h4>Interface diégétique</h4>
       <BlogTextImage
-          src="https://drive.google.com/thumbnail?id=1lEDWP-55QORfUOKZ57lKM_fb3OSU0sWX&sz=s1000"
+          src="https://ik.imagekit.io/mrsim/Media%20Projets/CookingUI/Cookbook.jpg"
+          imageFileWidth='500'
           alt="Livre de cuisine"
           imagePosition="right"
           useP={false}
@@ -137,7 +137,7 @@ export const projects: Project[] = [
 
       </>
     ),
-    "imageUrl": "https://drive.google.com/thumbnail?id=1MxUhZAyIHYBXWV2rCRysD3sELN3iXc2i&sz=s1000",
+    "imageUrl": "https://ik.imagekit.io/mrsim/Media%20Projets/CookingUI/Items.PNG",
     "technologies": ["Unity 3D", "C#", "UI"],
     "UrlsTitles": [""],
     "Urls": [""]
@@ -160,14 +160,14 @@ export const projects: Project[] = [
       <BlogImage src='https://drive.google.com/thumbnail?id=1-YUeaijaveOVBDIiKSPcZxRPvFJYhDHO&sz=s1000' alt='Éditeur de sphères personnalisées' caption='Éditeur de sphères personnalisées' width='mid'></BlogImage>
       
       <h3>Noises triplanaires</h3>
-      <BlogTextImage src='https://drive.google.com/thumbnail?id=1Slzv04TKIRWwES6gZ20IYI4dWrNJGH0-&sz=s1000' alt='Conversion de noises 2D en noises triplanaires' caption='Conversion de noises 2D en noises triplanaires' useP={false}>
+      <BlogTextImage src='https://ik.imagekit.io/mrsim/Media%20Projets/ShaderWorks/3dnoises.PNG' imageFileWidth='500' alt='Conversion de noises 2D en noises triplanaires' caption='Conversion de noises 2D en noises triplanaires' useP={false}>
         <p>La génération procédurale repose sur des <i>noises</i>, utilisés pour créer des reliefs et motifs naturels. Le problème est que ces noises sont en deux dimensions, provoquant une forte distorsion aux pôles lors de leur projection sur la planète.</p>
         <p>Pour y remédier, j'ai développé une variante triplanaire de chaque noise principal (<i>gradient</i>, <i>voronoi</i> et <i>simple</i>), générant un noise sur les axes x, y et z, puis les combinant pour former une texture 3D homogène.</p>
       </BlogTextImage>
       <p>Ces noises 3D s'adaptent parfaitement à une sphère et constituent la base de ma génération procédurale.</p>
 
       <h3>Construction de la planète</h3>
-      <BlogTextImage src='https://drive.google.com/thumbnail?id=1i2SB2ZruHZxJiIwC3Byz-u_NC7rqy02q&sz=s1000' alt='Timelapse du shader de planète' caption='Timelapse du shader de planète' useP={false} imagePosition='left'>
+      <BlogTextImage src='https://drive.google.com/thumbnail?id=1i2SB2ZruHZxJiIwC3Byz-u_NC7rqy02q&sz=s400' alt='Timelapse du shader de planète' caption='Timelapse du shader de planète' useP={false} imagePosition='left'>
         <p>La planète est composée de plusieurs couches :</p>
         <ul>
           <li>Le terrain</li>
@@ -190,15 +190,15 @@ export const projects: Project[] = [
       
       <h3>Paramétrage</h3>
       <p>Les shaders incluent de nombreux paramètres influant l'apparence de la planète :</p>
-      <BlogTextImage src='https://drive.google.com/thumbnail?id=1gN2f4MnuWxX89fMmeiQLiVYZ-A0_z9G8&sz=s1000' alt='Visualisation des paramètres des noises' caption='Visualisation des paramètres des noises'>
+      <BlogTextImage src='https://drive.google.com/thumbnail?id=1gN2f4MnuWxX89fMmeiQLiVYZ-A0_z9G8&sz=s400' alt='Visualisation des paramètres des noises' caption='Visualisation des paramètres des noises'>
         La force, l'échelle et le mélange des noises modifient la topographie de la planète.
       </BlogTextImage>
-      <BlogTextImage src='https://drive.google.com/thumbnail?id=1IM9GsX-PCZ7oSkbHEYYkpp9Af9IOBzyS&sz=s1000' alt='Visualisation des paramètres des biomes' caption='Visualisation des paramètres des biomes' imagePosition='left'>
+      <BlogTextImage src='https://drive.google.com/thumbnail?id=1IM9GsX-PCZ7oSkbHEYYkpp9Af9IOBzyS&sz=s400' alt='Visualisation des paramètres des biomes' caption='Visualisation des paramètres des biomes' imagePosition='left'>
         La répartition, la couleur et le mélange des biomes transforment l'apparence de la planète.
       </BlogTextImage>
       </>
     ),
-    "imageUrl": "https://drive.google.com/thumbnail?id=1-yafYKywjO9St4zmWRw1TO-I2Cf4zmfT&sz=s1000",
+    "imageUrl": "https://ik.imagekit.io/mrsim/Media%20Projets/ShaderWorks/Planet.PNG",
     "technologies": ["Unity 3D", "Shader Graph"],
     "UrlsTitles": ["Essayer sur Itch.io", "Télécharger le projet sur GitHub"],
     "Urls": ["https://mr-sim.itch.io/procedural-planet-shader", "https://github.com/Mr-Sim/Unity-Planet-Shader"]
@@ -219,7 +219,8 @@ export const projects: Project[] = [
         <h3>Principe du jeu</h3>
         <p>Le joueur évolue dans un environnement invisible et noir. Grâce à un scanner LiDAR, il peut projeter un grand nombre de points sur les surfaces de l'environnement, dévoilant progressivement la géométrie du terrain. En reconnaissant son environnement en vue à la 3e personne, le joueur peut progresser dans le niveau.</p>
         <BlogTextImage
-          src="https://drive.google.com/thumbnail?id=1ZeyNzoieCfEo380FK8A0SpCvj7quSrXQ&sz=s1000"
+          src="https://ik.imagekit.io/mrsim/Media%20Projets/Lidar/LidarScreenshot2.png"
+          imageFileWidth='800'
           alt="LiDAR Prototype screenshot 2"
           imagePosition="left"
           useP={false}
@@ -231,7 +232,8 @@ export const projects: Project[] = [
         <h3>Optimisation avec Unity DOTS</h3>
         
         <BlogTextImage
-          src="https://drive.google.com/thumbnail?id=1M6U0kF9mFjS0WT85puzUcpdcsm_dWb_C&sz=s1000"
+          src="https://ik.imagekit.io/mrsim/Media%20Projets/Lidar/LidarProtoScreenshot.png"
+          imageFileWidth='800'
           alt="LiDAR Prototype screenshot 1"
           imagePosition="right"
           useP={false}
@@ -258,7 +260,7 @@ export const projects: Project[] = [
         </ul>
       </>
     ),
-    "imageUrl": "https://drive.google.com/thumbnail?id=19a231hD29MvsvKvptu7-i1lkAn_18nXu&sz=s1000",
+    "imageUrl": "https://ik.imagekit.io/mrsim/Media%20Projets/Lidar/LidarProtoThumbnail.png",
     "technologies": ["Unity 3D", "Unity DOTS", "C#"],
     "UrlsTitles": ["Télécharger sur Itch.io"],
     "Urls": ["https://mr-sim.itch.io/lidar-prototype"]
@@ -284,7 +286,7 @@ export const projects: Project[] = [
         <p><strong>Le jeu possède une histoire</strong> dont la narration s'inspire des jeux "souls-like" du studio FromSoftware ; c'est-à-dire que le joueur peut deviner le sens du jeu et son background grâce à la lecture de la description des objets dont il dispose.</p>
         <p>En résumé, le joueur incarne la figurine de soldat d'un enfant qui s'amuse dans sa chambre, pensant à son père parti sur le front. Guidé par un désir de retrouvaille, l'enfant joue avec la figurine sur un parcours périlleux, ayant à la clé ce qui se rapproche le plus de ces retrouvailles tant désirées.</p>
         
-        <BlogTextImage src="https://drive.google.com/thumbnail?id=1uBmot2Dzpaqdk6xQr2KDYVZXIb7Wi-g4&sz=s1000"
+        <BlogTextImage src="https://drive.google.com/thumbnail?id=1uBmot2Dzpaqdk6xQr2KDYVZXIb7Wi-g4&sz=s500"
             alt="Rule The Room Trailer"
             imagePosition="right"
             useP={false}>
@@ -303,9 +305,9 @@ export const projects: Project[] = [
         <p>Les décors ont été entièrement réalisés à la main par notre camarade artiste qui a au préalable créé chaque modèle en 3D. L'histoire, la narration, le design et la présentation du jeu ont été faits en collaboration avec notre camarade de la branche business.</p>
       </>
     ),
-    "imageUrl": "https://drive.google.com/thumbnail?id=1JdgFWz7uzSuhIKJ0yJG7mQzIMVbv8f1h&sz=s1000",
+    "imageUrl": "https://ik.imagekit.io/mrsim/Media%20Projets/RuleTheRoom/RuleTheRoom.png",
     "technologies": ["Unity 2D", "C#"],
-    "UrlsTitles": ["Télécharger sur Itch.io"],
+    "UrlsTitles": ["Essayer sur Itch.io"],
     "Urls": ["https://mr-sim.itch.io/rule-the-room"]
   },
 
@@ -323,7 +325,8 @@ export const projects: Project[] = [
       
       <h3>Qu'est-ce que ce jeu ?</h3>
       <p>Shapes of War est un jeu sans joueur, qui se joue de manière autonome, un peu comme une simulation. Il met en œuvre des IA multicouches qui se battent dans un STR de base pour le contrôle des ressources sur la carte.</p>
-      <BlogTextImage src="https://drive.google.com/thumbnail?id=1gzc6r5JQEFDNWuQCc4DMCvExXVGn7rcC&sz=s1000"
+      <BlogTextImage src="https://ik.imagekit.io/mrsim/Media%20Projets/SHapesOfWar/Center.png"
+          imageFileWidth='500'
           alt="Shapes of war screenshot 1"
           imagePosition="right"
           useP={false}>
@@ -342,7 +345,8 @@ export const projects: Project[] = [
       <p>Chaque bataillon est contrôlé par la deuxième couche d'IA. Un bataillon organise des unités autour d'un objectif unique. Il est censé réagir dynamiquement à l'environnement et mettre à jour ses objectifs immédiats en temps réel, mais ce comportement n'a pas encore été implémenté. Le bataillon sert donc uniquement à gérer les unités qu'il regroupe.</p>
       
       <h3>La couche des unités</h3>
-      <BlogTextImage src="https://drive.google.com/thumbnail?id=1ihr3xQqVbpbCOD6yigdOtZ5kRB0udSjE&sz=s1000"
+      <BlogTextImage src="https://ik.imagekit.io/mrsim/Media%20Projets/SHapesOfWar/Corner.png"
+          imageFileWidth='500'
           alt="Shapes of war screenshot 2"
           imagePosition="left"
           useP={false}>
@@ -361,7 +365,7 @@ export const projects: Project[] = [
         <li>Le soigneur : il se tient à l'écart des ennemis et soigne les alliés.</li>
       </ul>
       </>),
-    imageUrl: "https://drive.google.com/thumbnail?id=1wxiD051E9Yuze1vYuufNi_H_pwRF4pzZ&sz=s1000",
+    imageUrl: "https://ik.imagekit.io/mrsim/Media%20Projets/SHapesOfWar/Title%20screen.png",
     
     technologies: ["Unity 2D", "C#"],
     UrlsTitles : ["Télécharger sur Itch.io"],
@@ -385,7 +389,8 @@ export const projects: Project[] = [
       
       <h3>Principe du jeu</h3>
       <p>Le joueur, qu'il soit humain ou bot, contrôle son avatar avec une seule commande : monter. Le joueur peut activer le jetpack pour prendre de l'altitude ou le désactiver pour redescendre.</p>
-      <BlogTextImage src="https://drive.google.com/thumbnail?id=16_69fneDDOt-AlNs6zC_94MXdk35uf9i&sz=s1000"
+      <BlogTextImage src="https://ik.imagekit.io/mrsim/Media%20Projets/Jetpack%20Dinoride/Missile.PNG"
+          imageFileWidth='500'
           alt="Jetpack Dinoride Screenshot 1"
           imagePosition="right"
           useP={false}>
@@ -395,7 +400,8 @@ export const projects: Project[] = [
         <p>Le joueur est éliminé si son score atteint 0.</p>
       </BlogTextImage>
 
-      <BlogTextImage src="https://drive.google.com/thumbnail?id=1w9m1D7eeal5JGFTN2OojMKKmK2ga8v1H&sz=s1000"
+      <BlogTextImage src="https://ik.imagekit.io/mrsim/Media%20Projets/Jetpack%20Dinoride/Configuration.PNG"
+          imageFileWidth='500'
           alt="Jetpack Dinoride configuration screen"
           imagePosition="left"
           useP={false}>
@@ -409,8 +415,9 @@ export const projects: Project[] = [
       <p>Une boîte de dialogue fournit des explications pour chaque paramètre survolé.</p>
       </BlogTextImage>
 
-      <BlogTextImage src="https://drive.google.com/thumbnail?id=1fbEGgGaeOa0TETQFqSzPTWJ2M6zsj24B&sz=s1000"
-          alt="Shapes of war screenshot 1"
+      <BlogTextImage src="https://ik.imagekit.io/mrsim/Media%20Projets/Jetpack%20Dinoride/Graphics.PNG"
+          imageFileWidth='500'
+          alt="Jetpack Dinoride charts"
           imagePosition="right"
           useP={false}>
         <p>Tout au long de chaque round, des données de jeu sont récupérées : Score des joueurs, obstacles générés, obstacles touchés, temps passé en l'air, etc. Ces données sont stockées au format JSON.</p>
@@ -429,7 +436,7 @@ export const projects: Project[] = [
         <li><strong>L'omnicient :</strong> Ce bot avait pour ambition de créer un réseau neuronal nourri de nombreuses données brutes sur la position des obstacles, la position du joueur, les vitesses relatives, etc., dans l'espoir de générer un raisonnement et un comportement de survie efficace. Faute de temps, nous n'avons pu implémenter qu'une trajectoire totalement aléatoire, ce qui en fait le bot le moins performant et le plus décevant.</li>
       </ul>
       </>),
-    imageUrl: "https://drive.google.com/thumbnail?id=11ixCQoyENdFgzO_dL-Q_07-DLjR-DEIV&sz=s1000",
+    imageUrl: "https://ik.imagekit.io/mrsim/Media%20Projets/Jetpack%20Dinoride/title.png",
     
     technologies: ["Unity 2D", "C#", "ML-Agents"],
     UrlsTitles: ["Essayer sur Itch.io", "Voir le rapport de projet"],

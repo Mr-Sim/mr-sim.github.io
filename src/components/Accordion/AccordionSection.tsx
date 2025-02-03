@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { AccordionSectionProps } from './types';
 import { adjustColor } from './utils';
-import { useAccordionContext } from './AccordionContext';
 
 export function AccordionSection({
   title,
@@ -10,38 +9,53 @@ export function AccordionSection({
   onToggle,
   backgroundColor,
   children,
-  countdownTime = 10 // Valeur par défaut de 10 secondes pour le compte à rebours
+  countdownTime = 10
 }: AccordionSectionProps) {
 
   const collapsedHeight = '4rem';
-  const [countdown, setCountdown] = useState(countdownTime); // Compte à rebours avec décimales possibles
+  const [countdown, setCountdown] = useState(countdownTime);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isTitleAnimating, setIsTitleAnimating] = useState(false);
+  const [hasCooldownEnded, setHasCooldownEnded] = useState(false);
 
   useEffect(() => {
-    if (countdown <= 0) {
-      // Déclencher l'animation lorsque le compte à rebours atteint zéro
+    if (countdown <= 0 && !hasCooldownEnded) {
       setIsAnimating(true);
+      setIsTitleAnimating(true);
+      setHasCooldownEnded(true); // Marquer la fin du cooldown
 
-      // Lancer les animations : gonfler, puis revenir à la taille initiale
       setTimeout(() => {
         setIsAnimating(false);
-      }, 600); // Durée de l'animation (doit correspondre à l'animation CSS)
+      }, 600);
     }
-  }, [countdown]);
+  }, [countdown, hasCooldownEnded]);
 
-  // Décrémenter le compte à rebours toutes les secondes
   useEffect(() => {
     if (countdown > 0) {
       const timer = setInterval(() => {
-        setCountdown(prev => prev - 0.1); // Décrémenter de 0.1 pour garder la précision
-      }, 100); // Mise à jour toutes les 100 ms pour gérer les fractions de seconde
+        setCountdown(prev => prev - 0.1);
+      }, 100);
       return () => clearInterval(timer);
     }
   }, [countdown]);
 
+  // 🔄 Nouvelle gestion de la répétition après le cooldown
+  useEffect(() => {
+    if (hasCooldownEnded) {
+      const interval = setInterval(() => {
+        setIsAnimating(true);
+        setTimeout(() => {
+          setIsAnimating(false);
+        }, 600);
+      }, 10000); // Répéter toutes les 10s après le cooldown
+
+      return () => clearInterval(interval);
+    }
+  }, [hasCooldownEnded]);
+
   return (
     <div 
-      className="transition-all duration-300 ease-in-out relative"
+      className={`transition-all duration-300 ease-in-out relative`}
       style={{ 
         height: isExpanded ? '0' : collapsedHeight,
         flexGrow: isExpanded ? 1 : 0,
@@ -50,7 +64,7 @@ export function AccordionSection({
         minHeight: collapsedHeight
       }}
     >
-      {/* Gradient de fond statique */}
+      {/* Gradient de fond */}
       <div 
         className="absolute inset-0 min-h-[100vh]"
         style={{ 
@@ -58,20 +72,28 @@ export function AccordionSection({
         }}
       />
 
-      {/* Conteneur de contenu qui commence du haut */}
+      {/* Contenu */}
       <div className={`transition-all duration-300 absolute inset-0 overflow-hidden`}>
         <div className={`h-full overflow-x-hidden`}>
           {children}
         </div>
       </div>
 
-      {/* Bouton d'en-tête avec flou de fond et animation */}
+      {/* Header avec animations */}
       <button
         onClick={onToggle}
-        className={`w-full px-6 flex items-center justify-between text-white absolute top-0 left-0 right-0 z-10 backdrop-blur-sm transition-all duration-300 ${isAnimating ? 'header-animate' : ''}`}
+        className={`w-full px-6 flex items-center justify-between text-white absolute top-0 left-0 right-0 z-10 backdrop-blur-sm transition-all duration-300 ${isAnimating ? 'animate-highlight' : ''}`}
         style={{ minHeight: collapsedHeight }}
       >
-        <h2 className="ml-5 text-xl font-bold">{title}</h2>
+        {/* Titre animé */}
+        <h2 
+          className={`text-xl font-bold transition-opacity duration-300 opacity-0 ${
+            isTitleAnimating ? 'animate-slide-in' : ''
+          }`}
+        >
+          {title}
+        </h2>
+
         <ChevronDown 
           className={`transform transition-transform duration-300 ${
             isExpanded ? 'rotate-180' : ''

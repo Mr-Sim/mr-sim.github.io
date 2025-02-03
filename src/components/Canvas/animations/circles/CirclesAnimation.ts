@@ -6,10 +6,11 @@ import { calculateGravitationalForce } from './physics/forces';
 import { resolveCollision } from './physics/collisions';
 import { handleBoundaries } from './physics/boundaries';
 import { getCanvasCenter, getEffectiveDimensions } from '../../utils/position';
+import { isMobileDevice } from '../../utils/deviceDetection';
 
 
 
-function limitVelocity(velocity, maxSpeed) {
+function limitVelocity(velocity : Point, maxSpeed : number) {
   const speed = Math.sqrt(velocity.x ** 2 + velocity.y ** 2);
   if (speed > maxSpeed) {
     const scale = maxSpeed / speed;
@@ -56,7 +57,8 @@ export class CirclesAnimation extends BaseAnimation {
         radius: config.minRadius + (config.maxRadius - config.minRadius) * Math.random(),
         mass: 1 + Math.random() * 2,
         color: `rgba(255, 255, 255, ${config.opacity})`,
-        targetOpacity: config.opacity
+        targetOpacity: config.opacity,
+        repultion: 1
       });
     }
   }
@@ -78,6 +80,10 @@ export class CirclesAnimation extends BaseAnimation {
       let maxForce = 0;
       let strongestInteraction: Circle | null = null;
 
+      //revert repultion
+      const factor = isMobileDevice() ? 0.05 : 0.005;
+      circle.repultion = circle.repultion < 1 ? circle.repultion+(factor*deltaTime) : 1;
+
       // Get nearby circles for overlap detection
       const nearbyCircles = this.circles.filter((_, index) => index !== i);
 
@@ -95,8 +101,8 @@ export class CirclesAnimation extends BaseAnimation {
         
         // Apply force with deltaTime scaling
         const scaledForce = {
-          x: force.x * deltaTime,
-          y: force.y * deltaTime
+          x: force.x * deltaTime * circle.repultion,
+          y: force.y * deltaTime * circle.repultion
         };
 
         circle.velocity.x += scaledForce.x / circle.mass;
@@ -143,9 +149,9 @@ export class CirclesAnimation extends BaseAnimation {
       const distance = Math.sqrt(dx * dx + dy * dy);
       
       if (distance > 0) {
-        const attraction = 0.0001 * deltaTime;
-        circle.velocity.x += (dx / distance) * attraction;
-        circle.velocity.y += (dy / distance) * attraction;
+        const attraction = 0.000005 * deltaTime;
+        circle.velocity.x += (dx * Math.pow(distance, 2) * (1-circle.repultion)) * Math.pow(attraction, 2);
+        circle.velocity.y += (dy * Math.pow(distance, 2) * (1-circle.repultion)) * Math.pow(attraction, 2);
       }
 
     }

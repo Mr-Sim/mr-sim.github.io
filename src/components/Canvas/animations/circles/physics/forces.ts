@@ -2,6 +2,7 @@ import { Circle } from '../types';
 import { Point } from '../../../types';
 import { getDistance, getUnitVector } from '../utils/vectorMath';
 import { PHYSICS_CONSTANTS as constants } from './constants';
+import { isMobileDevice } from '../../../utils/deviceDetection';
 
 function getOverlappingCirclesCount(circle: Circle, nearbyCircles: Circle[]): number {
   let count = 0;
@@ -14,7 +15,6 @@ function getOverlappingCirclesCount(circle: Circle, nearbyCircles: Circle[]): nu
       count++;
     }
   }
-  
   return count;
 }
 
@@ -34,26 +34,33 @@ export function calculateGravitationalForce(circle: Circle, other: Circle, nearb
   let blob = false;
   if(overlappingCount > 5){
     blob = true;
+    circle.repultion *= 0.4;
   }
 
   const g = blob ? -constants.G*0.1 : constants.G;
   // Calculate base gravitational force
-  const forceMagnitude = g * (circle.mass * other.mass) / (distance * distance);
+  const vDist = isMobileDevice() ? 0.5*distance : distance;
+  const forceMagnitude = g * (circle.mass * other.mass) / (Math.pow(vDist, 2));
   const unitVector = getUnitVector(circle.position, other.position);
   
   
+
   
+  const repulsionFactor = overlappingCount>10 ? 5000 : 1;
   // If more than 60% of nearby circles are overlapping, invert and amplify the force
   if (overlapRatio > 0.45) {
-    const repulsionFactor = 50; // Amplify the repulsion force
+    const repulsionFactor = isMobileDevice() ? 1 : 50; // Amplify the repulsion force
     return {
       x: -unitVector.x * forceMagnitude * repulsionFactor,
       y: -unitVector.y * forceMagnitude * repulsionFactor
     };
   }
   
+  const vecX = unitVector.x * forceMagnitude;
+  const vecY = unitVector.y * forceMagnitude;
+
   return {
-    x: unitVector.x * forceMagnitude,
-    y: unitVector.y * forceMagnitude
-  };
+    x: vecX - 2*(vecX * (1-circle.repultion) * (repulsionFactor * circle.mass)),
+    y: vecY - 2*(vecY * (1-circle.repultion) * (repulsionFactor * circle.mass))
+  }
 }

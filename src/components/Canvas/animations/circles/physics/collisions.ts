@@ -6,7 +6,7 @@ import {
   calculateImpulse
 } from './collisionMath';
 
-export function resolveCollision(circle1: Circle, circle2: Circle, blob: boolean): void {
+export function resolveCollision(circle1: Circle, circle2: Circle): void {
   // Calculate collision normal
   const normal = calculateCollisionNormal(circle1.position, circle2.position);
   
@@ -21,16 +21,13 @@ export function resolveCollision(circle1: Circle, circle2: Circle, blob: boolean
   if (relativeVelocity > 0) return;
   
   // Calculate impulse scalar
-  let impulse = calculateImpulse(
+  const impulse = calculateImpulse(
     relativeVelocity,
     constants.ELASTICITY,
     circle1.mass,
     circle2.mass
   );
 
-  if(blob){
-    impulse *= 2;
-  }
 
   // Apply impulse
   const impulseX = impulse * normal.x;
@@ -49,8 +46,8 @@ export function resolveCollision(circle1: Circle, circle2: Circle, blob: boolean
     );
   
   if (penetrationDepth > 0) {
-    const percent = 0.2; // penetration resolution percentage
-    const slop = 0.1; // allowed penetration
+    const percent = constants.POSITION_CORRECTION_PERCENT; 
+    const slop = constants.ALLOWED_PENETRATION;
     const correction = Math.max(penetrationDepth - slop, 0) / (1/circle1.mass + 1/circle2.mass) * percent;
     
     const correctionX = normal.x * correction;

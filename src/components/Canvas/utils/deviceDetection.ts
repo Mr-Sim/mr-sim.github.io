@@ -3,5 +3,5 @@ export function isMobileDevice(): boolean {
 }
 
 export function getResponsiveCount(baseCount: number): number {
-  return isMobileDevice() ? Math.floor(baseCount / 2.5) : baseCount;
+  return isMobileDevice() ? Math.floor(baseCount / 2) : baseCount;
 }

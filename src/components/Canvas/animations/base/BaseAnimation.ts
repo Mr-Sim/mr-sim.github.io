@@ -1,4 +1,5 @@
 import { Point } from '../../types';
+import { isMobileDevice } from '../../utils/deviceDetection';
 
 export interface AnimationState {
   time: number;
@@ -15,7 +16,8 @@ export abstract class BaseAnimation {
   protected calculateDeltaTime(currentTime: number): number {
     const deltaTime = this.lastTime ? (currentTime - this.lastTime) / 16 : 1;
     this.lastTime = currentTime;
-    return deltaTime;
+    const finalDeltaTime = isMobileDevice() ? deltaTime*0.1 : deltaTime*0.8;
+    return finalDeltaTime;
   }
   
   protected shouldUpdate(interval: number): boolean {

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { X } from 'lucide-react';
 import { Project } from './types';
+import { IKImage } from 'imagekitio-react';
 
 interface ProjectPanelProps {
   project: Project | null;
@@ -9,6 +10,25 @@ interface ProjectPanelProps {
 }
 
 export function ProjectPanel({ project, isOpen, onClose }: ProjectPanelProps) {
+
+  useEffect(() => {
+    const handleBackButton = () => {
+      if (isOpen) {
+        onClose();
+        return;
+      }
+    };
+  
+    if (isOpen) {
+      window.history.pushState(null, '', window.location.href);
+      window.addEventListener('popstate', handleBackButton);
+    }
+  
+    return () => {
+      window.removeEventListener('popstate', handleBackButton);
+    };
+  }, [isOpen, onClose]);
+
   useEffect(() => {
     const handleEscapeKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape' && isOpen) {
@@ -54,9 +74,11 @@ export function ProjectPanel({ project, isOpen, onClose }: ProjectPanelProps) {
                   transitionDelay: isOpen ? '150ms' : '0ms'
                 }}
               >
-                <img 
+                <IKImage
                   decoding="async"
+                  loading="lazy"
                   src={project.imageUrl} 
+                  width='1000'
                   alt={project.title}
                   className="w-full h-80 object-cover rounded-lg mb-8"
                 />
