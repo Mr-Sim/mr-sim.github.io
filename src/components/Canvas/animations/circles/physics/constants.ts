@@ -3,7 +3,7 @@ import { isMobileDevice } from '../../../utils/deviceDetection';
 export const PHYSICS_CONSTANTS = {
   // Gravity constant adjusted for mobile
   get G() {
-    return isMobileDevice() ? 10 : 100; // Half the gravity on mobile
+    return isMobileDevice() ? 20 : 100; 
   },
   
   // Minimum distance increased for mobile

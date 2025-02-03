@@ -16,8 +16,8 @@ export abstract class BaseAnimation {
   protected calculateDeltaTime(currentTime: number): number {
     const deltaTime = this.lastTime ? (currentTime - this.lastTime) / 16 : 1;
     this.lastTime = currentTime;
-    const finalDeltaTime = isMobileDevice() ? deltaTime*0.1 : deltaTime*0.8;
-    return finalDeltaTime;
+    
+    return deltaTime;
   }
   
   protected shouldUpdate(interval: number): boolean {

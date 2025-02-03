@@ -21,7 +21,7 @@ export function ChapterNavigation({ contentRef }: ChapterNavigationProps) {
   useEffect(() => {
     if (!contentRef.current) return;
 
-    const headings = contentRef.current.querySelectorAll('h2');
+    const headings = contentRef.current.querySelectorAll('h1, h2');
     const newChapters: Chapter[] = Array.from(headings).map((heading) => ({
       id: heading.id || `chapter-${Math.random().toString(36).substr(2, 9)}`,
       title: heading.textContent || '',
@@ -117,7 +117,7 @@ export function ChapterNavigation({ contentRef }: ChapterNavigationProps) {
           }`}
         >
           <div className="p-4">
-            <h3 className="text-white font-semibold mb-3">Chapters</h3>
+            <h3 className="text-white font-semibold mb-3">Chapitres</h3>
             <nav className="space-y-1">
               {chapters.map((chapter) => (
                 <button

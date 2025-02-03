@@ -22,7 +22,9 @@ export function ProjectsSection() {
   return (
     <div className="relative h-full">
       {/* Content */}
-      <div className="h-full p-4 md:p-6 overflow-y-auto">
+      <div className="h-full p-4 md:p-6 overflow-y-auto pt-10">
+        <br/>
+        <br/>
         <ProjectGrid projects={projects} onViewProject={handleViewProject}/>
       </div>
 

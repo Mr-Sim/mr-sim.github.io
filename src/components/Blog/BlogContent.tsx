@@ -68,15 +68,18 @@ export function BlogContent() {
     <div className="rich-content relative h-full w-full">
       <div ref={contentRef} className="absolute inset-0 overflow-y-auto" style={{WebkitOverflowScrolling: "touch",}}>
 
-        <div className={`max-w-5xl mx-auto px-6 h-full transition-[padding] duration-300 ease-in-out ${
+        <div className={`bg-black/10 max-w-5xl mx-auto px-6 h-full transition-[padding] duration-300 ease-in-out ${
             isAccordionExpanded ? 'py-20' : 'py-0'
           }`}>  
+
+          <br/>
+          <br/>
           
           <BlogText variant="h1">Bonjour !</BlogText>  
 
           <BlogTextCarousel
             images={SimonSlides}
-            autoPlay={true}
+            autoPlay={false}
             imagePosition='left'
             imageWidth='1/3'
             useP={false}
@@ -102,7 +105,7 @@ export function BlogContent() {
 
           
           <BlogText variant="h2" id="wip">Work In progress</BlogText>
-          <p>Cette partie est encore en écriture</p>
+          <p>Cette partie est en cours d'écriture</p>
         </div>
         
       </div>

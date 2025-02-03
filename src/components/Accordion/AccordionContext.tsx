@@ -1,29 +1,29 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
-// Contexte pour stocker l'index de l'accordéon étendu
+// Contexte pour le chronomètre global
 const AccordionContext = createContext<{
-  expandedIndex: number | null;
-} | null>(null);
+  globalTrigger: boolean;
+}>({ globalTrigger: false });
 
 // Hook pour utiliser le contexte
 export function useAccordionContext() {
-  const context = useContext(AccordionContext);
-  if (!context) {
-    throw new Error('useAccordionContext must be used within an AccordionProvider');
-  }
-  return context;
+  return useContext(AccordionContext);
 }
 
 // Fournisseur de contexte
-export function AccordionProvider({
-  children,
-  expandedIndex,
-}: {
-  children: React.ReactNode;
-  expandedIndex: number | null;
-}) {
+export function AccordionProvider({ children }: { children: React.ReactNode }) {
+  const [globalTrigger, setGlobalTrigger] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setGlobalTrigger(prev => !prev); // Déclenchement global toutes les 10s
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <AccordionContext.Provider value={{ expandedIndex }}>
+    <AccordionContext.Provider value={{ globalTrigger }}>
       {children}
     </AccordionContext.Provider>
   );

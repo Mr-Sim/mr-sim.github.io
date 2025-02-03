@@ -66,7 +66,8 @@ export class CirclesAnimation extends BaseAnimation {
   update(state: AnimationState): void {
     if (!this.shouldUpdate(config.updateInterval)) return;
     
-    const deltaTime = this.calculateDeltaTime(state.time);
+    const dtFactor = isMobileDevice() ? 0.1 : 0.8;
+    const deltaTime = this.calculateDeltaTime(state.time) * dtFactor;
     this.forceLines = [];
 
     // Update center position based on mouse

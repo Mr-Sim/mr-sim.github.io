@@ -18,14 +18,14 @@ export function ProjectGrid({ projects, onViewProject }: ProjectGridProps) {
   
   return (
     <div
-      className={`grid gap-4 md:gap-6 grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 transition-[margin] duration-300 ease-in-out ${
-    isAccordionExpanded  ? "mt-20" : "mt-n10"
-  }`}
+    className={`grid gap-4 md:gap-6 grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 transition-[margin] duration-300 ease-in-out ${
+      isAccordionExpanded  ? "mt-20" : "mt-n10"
+    }`}
     >
       {projects.map((project, index) => (
         <div
           key={index}
-          className="group bg-white/5 rounded-lg overflow-hidden flex flex-col 
+          className="group bg-black/15 rounded-lg overflow-hidden flex flex-col 
             transform transition-all hover:scale-[1.02] hover:bg-white/10"
         >
           {/* Image container */}
@@ -90,7 +90,7 @@ export function ProjectGrid({ projects, onViewProject }: ProjectGridProps) {
 
             <button
               onClick={() => onViewProject(project)}
-              className="w-full mt-4 py-2 px-4 bg-white/10 hover:bg-white/20 
+              className="w-full mt-4 py-2 px-4 bg-black/15 hover:bg-black/25 
                 text-white rounded-md transition-colors text-sm
                 transform hover:scale-[1.02] active:scale-[0.98]"
             >

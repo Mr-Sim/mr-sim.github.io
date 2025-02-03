@@ -178,7 +178,7 @@ export const projects: Project[] = [
       </BlogTextImage>
       
       <p>Le terrain est le shader le plus complexe, avec des biomes variant selon l'altitude. Un relief supplémentaire est ajouté à certaines zones vertes pour simuler une forêt de pins.</p>
-      <p>Cette couche demande une haute résolution. L'absence de tessellation rend la scène exigeante en ressources.</p>
+      <p>Cette couche demande une haute résolution de mesh. L'absence d'optimisation par tessellation rend la scène exigeante en ressources.</p>
       
       <p>L'océan délimite les continents, avec des vagues dynamiques, une texture d'écume et une lumière d'horizon. L'éclairage diffus a été volontairement omis pour des raisons stylistiques.</p>
       
@@ -191,7 +191,7 @@ export const projects: Project[] = [
       <h3>Paramétrage</h3>
       <p>Les shaders incluent de nombreux paramètres influant l'apparence de la planète :</p>
       <BlogTextImage src='https://drive.google.com/thumbnail?id=1gN2f4MnuWxX89fMmeiQLiVYZ-A0_z9G8&sz=s400' alt='Visualisation des paramètres des noises' caption='Visualisation des paramètres des noises'>
-        La force, l'échelle et le mélange des noises modifient la topographie de la planète.
+        La force, l'échelle et le mélange des noises modifient la géographie de la planète.
       </BlogTextImage>
       <BlogTextImage src='https://drive.google.com/thumbnail?id=1IM9GsX-PCZ7oSkbHEYYkpp9Af9IOBzyS&sz=s400' alt='Visualisation des paramètres des biomes' caption='Visualisation des paramètres des biomes' imagePosition='left'>
         La répartition, la couleur et le mélange des biomes transforment l'apparence de la planète.

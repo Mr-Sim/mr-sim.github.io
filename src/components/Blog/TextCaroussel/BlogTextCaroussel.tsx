@@ -87,17 +87,21 @@ export function BlogTextCarousel({
               <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg"></div>
             )}
 
-            <img
-              ref={firstImageRef}
-              decoding="async"
-              src={images[currentIndex].src}
-              alt={images[currentIndex].alt}
-              loading="lazy"
-              className={`w-full h-auto object-contain rounded-lg transition-opacity duration-300 ${
-                isLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
-              onLoad={() => setIsLoaded(true)}
-            />
+            <div className="flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+              {images.map((image, index) => (
+                <img
+                  key={index}
+                  ref={index === 0 ? firstImageRef : null}
+                  decoding="async"
+                  src={image.src}
+                  alt={image.alt}
+                  loading="lazy"
+                  className="w-full h-full object-contain rounded-lg flex-shrink-0"
+                  onLoad={() => setIsLoaded(true)}
+                  style={{ width: '100%' }}
+                />
+              ))}
+            </div>
           </div>
           {images[currentIndex].caption && (
             <figcaption className="mt-2 text-sm text-white/60 text-center">
